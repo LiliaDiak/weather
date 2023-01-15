@@ -1,0 +1,179 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    padding: 0 0;
+    margin: 0 0;
+}
+body,html{
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+main{
+    flex: 1 1 auto;
+}
+.wrapper{
+    background: linear-gradient(172.57deg, #2E335A 2.07%, #1C1B33 95.04%);
+    box-shadow: -40px 60px 150px rgba(59, 38, 123, 0.25);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    padding: 15px 30px;
+}
+.weather__city-name{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+}
+.weather__city-btn{
+    padding: 10px 15px;
+    border-radius: 12px;
+}
+.weather__city{
+    display: flex;
+    margin-bottom: 70px;
+}
+.weather__city-input{
+    background: linear-gradient(180deg, #1C1B33 0%, #1C1B33 100%);
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 7px 70px 5px 28px;
+    color: rgba(255, 255, 255, 0.6);
+}
+.weater__current{
+    background-image: url(weather_bc.png);
+    background-repeat: no-repeat;
+    min-height: 192px;
+}
+.weather__current-up{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.weather__current-wrapper{
+    padding: 0 17px;
+}
+.weather__current-temp{
+    font-family: 'Livvic';
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 75px;
+    margin-top: -8px;
+    color: #FFFFFF;
+}
+.weather__current-icon{
+    margin-top: -68px;
+    margin-left: 38px;
+}
+.weather__current-dowm{
+    display: flex;
+    justify-content: space-between;
+}
+.weather__current-feels__like{
+
+}
+.today__feels-like{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+.today__city{
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+.main{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+
+
+
+
+
+footer{
+    background-image: url(footer__bg.png);
+    background-repeat: no-repeat;
+    width: 276px;
+    margin: 0 auto;
+    padding: 17px;
+}
+.footer__btn{
+    background: linear-gradient(143.04deg, #F5F5F9 14.18%, #DADFE7 84.7%);
+    box-shadow: -5px -10px 20px rgba(255, 255, 255, 0.5), 10px 10px 20px rgba(13, 20, 49, 0.5), inset 1px 1px 0.5px #FFFFFF, inset 1px 1px 0.5px #FFFFFF;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 58px;
+    position: relative;
+    height: 58px;
+}
+.footer__first-line{
+    position: absolute;
+    width: 3px;
+    top: 12px;
+    left: 25px;
+    border-radius: 20px;
+    background-color: #48319D;
+    height: 30px;
+}
+.footer__second-line{
+    position: absolute;
+    height: 3px;
+    top: 25px;
+    left: 12px;
+    border-radius: 20px;
+    background-color: #48319D;
+    width: 30px;
+}
+.footer__btn-more-5{
+    position: absolute;
+    content: "3";
+    background: linear-gradient(143.04deg, #F5F5F9 14.18%, #DADFE7 84.7%);
+    box-shadow: -2px -2px 20px rgb(255 255 255 / 50%), 10px 10px 20px rgb(13 20 49 / 50%), inset 1px 1px 0.5px #ffffff, inset 1px 1px 0.5px #ffffff;
+    border-radius: 50%;
+    width: 55px;
+    padding: 12px;
+    color: #48319D;
+    font-size: 24px;
+    left: 95px;
+    bottom: 120px;
+    opacity: 0;
+    height: 55px;
+}
+.footer__btn-more-3{
+    position: absolute;
+    content: "5";
+    padding: 12px;
+    color: #48319D;
+    font-size: 24px;
+    box-shadow: -2px -2px 20px rgb(255 255 255 / 50%), 10px 10px 20px rgb(13 20 49 / 50%), inset 1px 1px 0.5px #ffffff, inset 1px 1px 0.5px #ffffff;
+    background: linear-gradient(143.04deg, #F5F5F9 14.18%, #DADFE7 84.7%);
+    border-radius: 50%;
+    width: 55px;
+    opacity: 1;
+    transition: all .5s;
+    left: 246px;
+    bottom: 120px;
+    height: 55px;
+    opacity: 0;
+}
+.footer__btn-more-3.footer__btn-more-active{
+    opacity: 1;
+}
+.footer__btn-more-5.footer__btn-more-active{
+    opacity: 1;
+}
