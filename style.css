@@ -24,7 +24,7 @@ main{
     flex-direction: column;
 }
 .container{
-    padding: 15px 30px;
+    padding: 15px 23px;
 }
 .weather__city-name{
     font-weight: 400;
@@ -177,3 +177,44 @@ footer{
 .footer__btn-more-5.footer__btn-more-active{
     opacity: 1;
 }
+
+
+.weather__main-date{
+    display: flex;
+    justify-content: space-between;
+    max-width: 196px;
+    font-size: 23px;
+    margin-top: 30px;
+    font-size: 23px;
+    margin-bottom: 12px;
+    color: #6da9c8f2;
+}
+.weather__main-num{
+    color:#fff;
+}
+.weather__main-forecast{
+    display: flex;
+    justify-content: space-between;
+}
+.weather__main-weather{
+    display: flex;
+    color: #8db4d0;
+    flex-direction: column;
+    border: 1px solid #5d78a4ba;
+    padding: 4px;
+    border-radius: 7px;
+    background-color: #0d406f6b;
+}
+
+.weather__main-time{
+    justify-content: center;
+    display: flex;
+}
+
+.weather__main-feelslike-wrapper{
+    font-size: 12px;
+}
+.weather__main-temp-wrapper{
+    font-size: 15px;
+}
+
