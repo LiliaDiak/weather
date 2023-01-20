@@ -5,6 +5,13 @@
     padding: 0 0;
     margin: 0 0;
 }
+.btn{
+    background-color: #fff;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color:rgb(206, 208, 236);
+}
 body,html{
     height: 100%;
     font-family: 'Lato', sans-serif;
@@ -16,6 +23,11 @@ body,html{
 main{
     flex: 1 1 auto;
 }
+.weather{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .wrapper{
     background: linear-gradient(172.57deg, #2E335A 2.07%, #1C1B33 95.04%);
     box-shadow: -40px 60px 150px rgba(59, 38, 123, 0.25);
@@ -25,6 +37,10 @@ main{
 }
 .container{
     padding: 15px 23px;
+    max-width:500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .weather__city-name{
     font-weight: 400;
@@ -36,6 +52,12 @@ main{
 .weather__city-btn{
     padding: 10px 15px;
     border-radius: 12px;
+    border:none;
+    transition: all .3s;
+    cursor:pointer;
+}
+.weather__city-btn:hover{
+
 }
 .weather__city{
     display: flex;
@@ -118,14 +140,15 @@ footer{
     margin: 0 auto;
     border-radius: 50%;
     width: 58px;
+    border:none;
     position: relative;
     height: 58px;
 }
 .footer__first-line{
     position: absolute;
     width: 3px;
-    top: 12px;
-    left: 25px;
+    top: 14px;
+    left: 28px;
     border-radius: 20px;
     background-color: #48319D;
     height: 30px;
@@ -133,26 +156,11 @@ footer{
 .footer__second-line{
     position: absolute;
     height: 3px;
-    top: 25px;
-    left: 12px;
+    top: 28px;
+    left: 14.5px;
     border-radius: 20px;
     background-color: #48319D;
     width: 30px;
-}
-.footer__btn-more-5{
-    position: absolute;
-    content: "3";
-    background: linear-gradient(143.04deg, #F5F5F9 14.18%, #DADFE7 84.7%);
-    box-shadow: -2px -2px 20px rgb(255 255 255 / 50%), 10px 10px 20px rgb(13 20 49 / 50%), inset 1px 1px 0.5px #ffffff, inset 1px 1px 0.5px #ffffff;
-    border-radius: 50%;
-    width: 55px;
-    padding: 12px;
-    color: #48319D;
-    font-size: 24px;
-    left: 95px;
-    bottom: 120px;
-    opacity: 0;
-    height: 55px;
 }
 .footer__btn-more-3{
     position: absolute;
@@ -162,19 +170,17 @@ footer{
     font-size: 24px;
     box-shadow: -2px -2px 20px rgb(255 255 255 / 50%), 10px 10px 20px rgb(13 20 49 / 50%), inset 1px 1px 0.5px #ffffff, inset 1px 1px 0.5px #ffffff;
     background: linear-gradient(143.04deg, #F5F5F9 14.18%, #DADFE7 84.7%);
-    border-radius: 50%;
-    width: 55px;
+    border-radius: 20px;
+    width: 324px;
     opacity: 1;
+    border: none;
     transition: all .5s;
-    left: 246px;
+    left: 34px;
     bottom: 120px;
     height: 55px;
     opacity: 0;
 }
 .footer__btn-more-3.footer__btn-more-active{
-    opacity: 1;
-}
-.footer__btn-more-5.footer__btn-more-active{
     opacity: 1;
 }
 
