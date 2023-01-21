@@ -9,43 +9,83 @@ let cityBtn = document.querySelector("#input");
 let weatherwrapperforceveralDays = document.querySelectorAll(".weather__main-forecast");
 let weatherDay = document.querySelectorAll(".weather__main-date");
 let footerBtnFooter3 = document.querySelector(".footer__btn-more-3");
-// let footerBtnFooter5 = document.querySelector(".footer__btn-more-5");
 
 function convertion(val) {
     return Math.round((val - 273).toFixed(2))
 }
 
 weatherIcon = (data) => {
-    if (data.toLowerCase() == "Snow".toLowerCase()) {
-        return "weatherIcons/snow.svg"
+    let dateFull = new Date();
+    time = dateFull.getHours();
+    main = data.weather[0].main;
+    if (main.toLowerCase() == "Snow".toLowerCase()) {
+        if ((time == "0" || time == "3")) {
+            return "weatherIcons/SnowNight.svg"
+        }
+        else {
+            return "weatherIcons/snow.svg"
+        }
     }
-    if (data.toLowerCase() == "rain".toLowerCase()) {
-        return "weatherIcons/rain.svg"
+    if (main.toLowerCase() == "rain".toLowerCase()) {
+        if ((time == "0" || time == "3")) {
+            return "weatherIcons/RainNight.svg"
+        }
+        else {
+            return "weatherIcons/rain.svg"
+        }
     }
-    if (data.toLowerCase() == "thunderstorm".toLowerCase()) {
+    if (main.toLowerCase() == "thunderstorm".toLowerCase()) {
         return "weatherIcons/storm.svg"
     }
-    if (data.toLowerCase() == "Clouds".toLowerCase()) {
+    if (main.toLowerCase() == "Clouds".toLowerCase()) {
         return "weatherIcons/Clouds.svg"
     }
-    if (data.toLowerCase() == "drizzle".toLowerCase()) {
-        return "weatherIcons/Drizzle.svg"
+    if (main.toLowerCase() == "drizzle".toLowerCase()) {
+        if ((time == "0" || time == "3")) {
+            return "weatherIcons/DrizzleNight.svg"
+        }
+        else {
+            return "weatherIcons/Drizzle.svg"
+        }
     }
-    if (data.toLowerCase() == "Clear".toLowerCase()) {
-        return "weatherIcons/Clear.svg"
+    if (main.toLowerCase() == "Clear".toLowerCase()) {
+        if ((time == "0" || time == "3")) {
+            return "weatherIcons/clearMoon.svg"
+        } if (time == "21" || time == "18") {
+            return "weatherIcons/SunAndMoom.svg"
+        }
+        else {
+            return "weatherIcons/Clear.svg"
+        }
     }
     else {
-        return "weatherIcons/else.svg"
+        if ((time == "0" || time == "3")) {
+            return "weatherIcons/elseNight.svg"
+        }
+        else {
+            return "weatherIcons/else.svg"
+        }
+
     }
 }
-weatherIconForSerevalDays = (data, i)=>{
+weatherIconForSerevalDays = (data, i) => {
     let time = (data.list[i].dt_txt).slice(11, 13);
     main = data.list[i].weather[0].main;
     if (main.toLowerCase() == "Snow".toLowerCase()) {
-        return "weatherForSeveralDays/snow.svg"
+        if ((time == "00" || time == "03")) {
+            return "weatherForSeveralDays/SnowNight.svg"
+        }
+        else {
+            return "weatherForSeveralDays/snow.svg"
+        }
     }
     if (main.toLowerCase() == "rain".toLowerCase()) {
-        return "weatherForSeveralDays/rain.svg"
+        if ((time == "00" || time == "03")) {
+            return "weatherForSeveralDays/RainNight.svg"
+        }
+        else {
+            return "weatherForSeveralDays/rain.svg"
+        }
     }
     if (main.toLowerCase() == "thunderstorm".toLowerCase()) {
         return "weatherForSeveralDays/storm.svg"
@@ -54,59 +94,70 @@ weatherIconForSerevalDays = (data, i)=>{
         return "weatherForSeveralDays/Clouds.svg"
     }
     if (main.toLowerCase() == "drizzle".toLowerCase()) {
-        return "weatherForSeveralDays/Drizzle.svg"
+        if ((time == "00" || time == "03")) {
+            return "weatherForSeveralDays/DrizzleNight.svg"
+        }
+        else {
+            return "weatherForSeveralDays/Drizzle.svg"
+        }
     }
     if (main.toLowerCase() == "Clear".toLowerCase()) {
-        if((time=="00" || time =="03")){
+        if ((time == "00" || time == "03")) {
             return "weatherForSeveralDays/clearMoon.svg"
-        }if(time=="21" || time=="18"){
+        } if (time == "21" || time == "18") {
             return "weatherForSeveralDays/SunAndMoom.svg"
         }
-        else{
+        else {
             return "weatherForSeveralDays/Clear.svg"
         }
     }
     else {
-        return "weatherForSeveralDays/else.svg"
+        if ((time == "00" || time == "03")) {
+            return "weatherForSeveralDays/elseNight.svg"
+        }
+        else {
+            return "weatherForSeveralDays/else.svg"
+        }
+
     }
 }
 timeSlice = (val) => val.slice(10, 16)
 
-getWeekday=(data, i)=>{
+getWeekday = (data, i) => {
     let date = new Date(data.list[i].dt_txt);
     let d = date.getDay();
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    for(let i =0;i<days.length;i++){
-    if(i==d){
-        return(days[i])
-    }
+    for (let i = 0; i < days.length; i++) {
+        if (i == d) {
+            return (days[i])
+        }
     }
 }
 
-getMonth=(data, i)=>{
+getMonth = (data, i) => {
     let date = new Date(data.list[i].dt_txt);
     let d = date.getMonth();
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    for(let i =0;i<months.length;i++){
-    if(i==d){
-        return(months[i])
-    }
+    for (let i = 0; i < months.length; i++) {
+        if (i == d) {
+            return (months[i])
+        }
     }
 }
 
-getDayTime=(data, i)=>{
+getDayTime = (data, i) => {
     let time = (data.list[i].dt_txt).slice(11, 13);
     console.log(time)
-    if(time == "03" || time == "00"){
+    if (time == "03" || time == "00") {
         return "night"
     }
-    if(time == "09"|| time == "06"){
+    if (time == "09" || time == "06") {
         return "morning"
     }
-    if(time == "15" || time == "12"){
+    if (time == "15" || time == "12") {
         return "day"
     }
-    if(time == "21" || time =="18"){
+    if (time == "21" || time == "18") {
         return "evening"
     }
 
@@ -125,7 +176,7 @@ cityBtn.addEventListener("click", function (e) {
             <div class="weather__current-wrapper">
             <div class="weather__current-up">
                 <p class="weather__current-temp">${convertion(data.main.temp)}°</p>
-                <img src="${weatherIcon(data.weather[0].main)}" alt="" class="weather__current-icon">
+                <img src="${weatherIcon(data)}" alt="" class="weather__current-icon">
             </div>
             <div class="weather__current-dowm">
                 <div class="weather__current-feels__like">
@@ -139,17 +190,19 @@ cityBtn.addEventListener("click", function (e) {
 
 })
 
-let creatWeatherforseveralDays = (data, num) => {
+let creatWeatherforseveralDays = (data) => {
     let dateAll = new Date();
     let date = 0;
     let day = dateAll.getDate();
-    weatherDay[0].innerHTML=" ";
-    weatherDay[1].innerHTML=" ";
-    weatherDay[2].innerHTML=" ";
-    weatherwrapperforceveralDays[0].innerHTML =" ";
-    weatherwrapperforceveralDays[1].innerHTML =" ";
-    weatherwrapperforceveralDays[2].innerHTML =" ";
-    for (let i = 0; i < 30; i += 2) {
+    weatherDay[0].innerHTML = " ";
+    weatherDay[1].innerHTML = " ";
+    weatherDay[2].innerHTML = " ";
+    weatherDay[3].innerHTML = " ";
+    weatherwrapperforceveralDays[0].innerHTML = " ";
+    weatherwrapperforceveralDays[1].innerHTML = " ";
+    weatherwrapperforceveralDays[2].innerHTML = " ";
+    weatherwrapperforceveralDays[3].innerHTML = " ";
+    for (let i = 0; i < 40; i += 2) {
         date = ((data.list[i].dt_txt).slice(8, 11));
         if (+(day + 1) == date) {
             weatherDay[0].innerHTML = `<h5 class="weather__main-title">${getWeekday(data, i)}</h5>
@@ -209,7 +262,7 @@ let creatWeatherforseveralDays = (data, num) => {
             `
         }
 
-        if ((+(day + 4) == date)&&(num==5)) {
+        if ((+(day + 4) == date)) {
             weatherDay[3].innerHTML = `<h5 class="weather__main-title">${getWeekday(data, i)}</h5>
             <p class="weather__main-num">${date}</p>
             <p class="weather__main-month">${getMonth(data, i)}</p>`
@@ -228,67 +281,27 @@ let creatWeatherforseveralDays = (data, num) => {
                                     </div>
             `
         }
-        if ((+(day + 5) == date)&&(num==5)) {
-            weatherDay[4].innerHTML = `<h5 class="weather__main-title">${getWeekday(data, i)}</h5>
-            <p class="weather__main-num">${date}</p>
-            <p class="weather__main-month">${getMonth(data, i)}</p>`
-            weatherwrapperforceveralDays[4].innerHTML += `
-            <div class="weather__main-weather">
-                                        <p class="weather__main-time">${getDayTime(data, i)}</p>
-                                        <img src="${weatherIconForSerevalDays(data, i)}" alt="">
-                                        <div class="weather__main-temp-wrapper">
-                                            <p class="weather__main-min">min: ${convertion(data.list[i].main.temp_min)}</p>
-                                            <p class="weather__main-max">max: ${convertion(data.list[i].main.temp_max)}</p>
-                                        </div>
-                                        <div class="weather__main-feelslike-wrapper">
-                                            <p class="weather__main-feelslike">feels like: ${convertion(data.list[i].main.feels_like)}</p>
-                                            <p class="weather__main-main">${data.list[i].weather[0].main}</p>
-                                        </div>
-                                    </div>
-            `
-        }
     }
 }
 
 
-footerBtnFooter3.addEventListener("click", function(e){
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityInput.value}&cnt=30&appid=f22d12ba1b50d6fbe65d82aebbf4ba73`)
+footerBtnFooter3.addEventListener("click", function (e) {
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityInput.value}&cnt=40&appid=f22d12ba1b50d6fbe65d82aebbf4ba73`)
         .then(res => res.json())
         .then(data => {
-            // console.log(data);
-            creatWeatherforseveralDays(data, 3)
+            creatWeatherforseveralDays(data)
         })
 
-        if(footerBtnFooter3.classList.contains("footer__btn-more-active")){
-            footerBtnFooter3.classList.remove("footer__btn-more-active")
-        }
+    if (footerBtnFooter3.classList.contains("footer__btn-more-active")) {
+        footerBtnFooter3.classList.remove("footer__btn-more-active")
+    }
 })
-
-
-// footerBtnFooter5.addEventListener("click", function(){
-//     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Lviv&cnt=50&appid=f22d12ba1b50d6fbe65d82aebbf4ba73`)
-//         .then(res => res.json())
-//         .then(data => {
-//             // console.log(data);
-//             creatWeatherforseveralDays(data, 5)
-//         })
-// })
-
-
-
-
-
-
-
-
-
 
 
 const footerBtn = document.querySelector(".footer__btn");
 const footerBtnMore3 = document.querySelector(".footer__btn-more-3");
-const footerBtnMore5 = document.querySelector(".footer__btn-more-5");
-footerBtn.addEventListener("click", footer);
 
+footerBtn.addEventListener("click", footer);
 function footer(event) {
     if (event.target.closest('.footer__btn')) {
         footerBtnMore3.classList.toggle('footer__btn-more-active');

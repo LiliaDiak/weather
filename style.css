@@ -67,8 +67,20 @@ main{
     background: linear-gradient(180deg, #1C1B33 0%, #1C1B33 100%);
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
-    padding: 7px 70px 5px 28px;
+    padding: 7px 70px 5px 33px;
+    position: relative;
     color: rgba(255, 255, 255, 0.6);
+}
+.weather__city-img{
+    content: "";
+    position: absolute;
+    top: 25px;
+    margin-left: 9px;
+    width: 17px;
+    height: 17px;
+}
+.weahter__main-container{
+    max-width: 360px;
 }
 .weater__current{
     background-image: url(weather_bc.png);
@@ -129,7 +141,11 @@ main{
 footer{
     background-image: url(footer__bg.png);
     background-repeat: no-repeat;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
     width: 276px;
+    background-position-y: 107px;
     margin: 0 auto;
     padding: 17px;
 }
@@ -163,8 +179,6 @@ footer{
     width: 30px;
 }
 .footer__btn-more-3{
-    position: absolute;
-    content: "5";
     padding: 12px;
     color: #48319D;
     font-size: 24px;
@@ -174,10 +188,8 @@ footer{
     width: 324px;
     opacity: 1;
     border: none;
-    transition: all .5s;
-    left: 34px;
-    bottom: 120px;
-    height: 55px;
+    transition: all .5s;    
+    margin-bottom: 60px;
     opacity: 0;
 }
 .footer__btn-more-3.footer__btn-more-active{
@@ -187,7 +199,6 @@ footer{
 
 .weather__main-date{
     display: flex;
-    justify-content: space-between;
     max-width: 196px;
     font-size: 23px;
     margin-top: 30px;
@@ -197,6 +208,7 @@ footer{
 }
 .weather__main-num{
     color:#fff;
+    margin: 0 10px;
 }
 .weather__main-forecast{
     display: flex;
@@ -224,3 +236,31 @@ footer{
     font-size: 15px;
 }
 
+
+
+
+@media(max-width:380px){
+    .container{
+        padding: 15px 1px;
+    }
+    .weather__main-weather {
+        width: 73px;
+    }
+    .weather__main-forecast {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .footer__btn-more-3 {
+        font-size: 20px;
+        width: 292px;
+    }.weather__city-input {
+        padding: 7px 51px 5px 33px;
+    }
+    
+}
+@media(max-width:350px){
+    .weahter__main-container{
+        max-width:306px;
+    }
+
+}

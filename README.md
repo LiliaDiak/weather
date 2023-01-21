@@ -1,1 +1,1 @@
-# weather
+the main work is done. You can use this weather app if you need current weather or weather for 4 next days. I used vanilla Js, worked with fetch and json.
