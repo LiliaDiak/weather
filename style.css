@@ -56,9 +56,6 @@ main{
     transition: all .3s;
     cursor:pointer;
 }
-.weather__city-btn:hover{
-
-}
 .weather__city{
     display: flex;
     margin-bottom: 70px;
@@ -110,9 +107,6 @@ main{
 .weather__current-dowm{
     display: flex;
     justify-content: space-between;
-}
-.weather__current-feels__like{
-
 }
 .today__feels-like{
     font-weight: 500;
